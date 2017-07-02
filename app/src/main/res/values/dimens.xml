@@ -9,6 +9,6 @@
     <dimen name="card_image_height">94dp</dimen>
     <dimen name="nav_header_height">222dp</dimen>
 
-    <dimen name="anim_margin">-115dp</dimen>
+    <dimen name="anim_margin_up">-115dp</dimen>
 
 </resources>

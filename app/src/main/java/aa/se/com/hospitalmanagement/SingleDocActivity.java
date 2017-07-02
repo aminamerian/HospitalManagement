@@ -1,33 +1,41 @@
 package aa.se.com.hospitalmanagement;
 
 import android.graphics.Typeface;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mikepenz.iconics.context.IconicsLayoutInflater;
 
 public class SingleDocActivity extends AppCompatActivity {
 
     private Typeface yekanFont;
     private String name;
-    private TextView Tname;
+    private int image;
+    private TextView textViewName;
+    private ImageView imageView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_doc);
 
 
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
+        name = getIntent().getStringExtra("NAME");
+        image = getIntent().getIntExtra("IMAGE", R.drawable.ic_doc);
 
-        name= getIntent().getStringExtra("NAME");
-        Tname= (TextView) findViewById(R.id.text_doc);
+        textViewName = (TextView) findViewById(R.id.text_doc);
+        imageView = (ImageView) findViewById(R.id.image_doc);
 
-        Tname.setText(name);
-        Tname.setTypeface(yekanFont);
+        textViewName.setTypeface(yekanFont);
+        textViewName.setText(name);
+        imageView.setImageResource(image);
 
     }
+
+
 }

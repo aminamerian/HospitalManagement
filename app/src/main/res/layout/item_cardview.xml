@@ -26,7 +26,7 @@
             android:layout_height="115dp"
             android:orientation="horizontal" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_container"
             android:layout_width="match_parent"
             android:layout_height="155dp"
@@ -50,7 +50,19 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_view_des"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/inner_container"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

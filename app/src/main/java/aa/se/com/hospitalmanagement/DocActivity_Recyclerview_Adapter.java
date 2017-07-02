@@ -1,18 +1,18 @@
 package aa.se.com.hospitalmanagement;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -21,16 +21,20 @@ import android.widget.TextView;
 
 public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocViewHolder> {
     private String[] doctors;
+    private String[] doctorsDes;
+    private int[] doctorsImg;
     private Context context;
     private LayoutInflater inflater;
     private Typeface font;
 
 
-    public DocActivity_Recyclerview_Adapter(Context context, Typeface font, String[] doctors) {
+    public DocActivity_Recyclerview_Adapter(Context context, Typeface font, String[] doctors, String[] doctorsDes, int[] doctorsImg) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.font = font;
         this.doctors = doctors;
+        this.doctorsDes = doctorsDes;
+        this.doctorsImg = doctorsImg;
     }
 
     @Override
@@ -42,16 +46,24 @@ public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocVi
     public void onBindViewHolder(final DocViewHolder holder, final int position) {
 
         holder.docName.setText(doctors[position]);
+        holder.docDes.setText(doctorsDes[position]);
+        holder.docImage.setImageResource(doctorsImg[position]);
+
         holder.docName.setTypeface(font);
+        holder.docDes.setTypeface(font);
+
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SingleDocActivity.class);
                 intent.putExtra("NAME", doctors[position]);
+                intent.putExtra("IMAGE", doctorsImg[position]);
 
-                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat
-                        .makeSceneTransitionAnimation((Activity) context, holder.rootView, "sharedCard");
-                context.startActivity(intent, optionsCompat.toBundle());
+                Pair<View, String> p1 = Pair.create((View) holder.docImage, "sharedImage");
+                Pair<View, String> p2 = Pair.create((View) holder.docName, "sharedText");
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);
+                context.startActivity(intent, options.toBundle());
             }
         });
     }
@@ -65,10 +77,10 @@ public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocVi
 
 class DocViewHolder extends RecyclerView.ViewHolder {
 
-    public CardView rootView;
-    public TextView docName;
-    public TextView docDes;
-    public ImageView docImage;
+    CardView rootView;
+    TextView docName;
+    TextView docDes;
+    ImageView docImage;
 
     public DocViewHolder(View itemView) {
         super(itemView);
