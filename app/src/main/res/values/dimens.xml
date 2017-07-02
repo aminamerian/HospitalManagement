@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="sm_keylines">0dp</dimen>
+    <dimen name="md_keylines">16dp</dimen>
+    <dimen name="article_subheading">16sp</dimen>
+    <dimen name="card_image_height">94dp</dimen>
+    <dimen name="nav_header_height">222dp</dimen>
+
+    <dimen name="anim_margin">-115dp</dimen>
+
+</resources>

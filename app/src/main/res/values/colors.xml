@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="dark_grey">#424242</color>
+    <color name="button_grey">#757575</color>
+    <color name="A100">#4fc7fd</color>
+    <color name="A400">#1db7fc</color>
+    <color name="A700">#0b73c5</color>
+    <color name="A1000">#0b73c5</color>
+    <color name="A1300">#064475</color>
+    <color name="toolbar_text">#ac8a47</color>
+    <color name="background">#e8e8e8</color>
+    <color name="toolbar_items">#ddffffff</color>
+</resources>

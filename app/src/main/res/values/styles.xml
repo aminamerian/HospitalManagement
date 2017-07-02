@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/A400</item>
+        <item name="colorPrimaryDark">@color/A400</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="toolbar_title" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/toolbar_items</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base"></style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+</resources>

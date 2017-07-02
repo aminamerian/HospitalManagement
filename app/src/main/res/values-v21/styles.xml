@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="AppTheme" parent="AppTheme.Base">
+                <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+                <item name="colorPrimary">@color/A400</item>
+                <item name="colorPrimaryDark">@color/A400</item>
+                <item name="colorAccent">@color/colorPrimary</item>
+                <item name="android:statusBarColor">@color/A700</item>
+        </style>
+</resources>

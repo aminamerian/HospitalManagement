@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Hospital Management</string>
+    <string name="app_name_fa">بیمارستان</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <string-array name="navDrawer">
+        <item>بخش ها</item>
+        <item>قرار ملاقات ها</item>
+        <item>تاریخچه</item>
+        <item>پروفایل</item>
+        <item>خروج از حساب کاربری</item>
+    </string-array>
+
+    <string-array name="depsName">
+        <item>مغز</item>
+        <item>قلب</item>
+        <item>گوارش</item>
+        <item>گوش و حلق و بینی</item>
+        <item>زنان و زایمان</item>
+        <item>کلیه</item>
+        <item>خون</item>
+        <item>چشم</item>
+        <item>رادیولوژی</item>
+        <item>اورتوپد</item>
+    </string-array>
+
+    <string name="exit">خروج</string>
+
+
+
+
+    <string-array name="sec1_docs">
+        <item>یداله علی محمدی</item>
+        <item>مهرداد مرادی</item>
+        <item>محمدرضا حاجی آبادی</item>
+    </string-array>
+
+    <string-array name="sec2_docs">
+        <item>حسین حسین نژاد</item>
+        <item>رامین بقائی</item>
+    </string-array>
+
+    <string-array name="sec3_docs">
+        <item>محمد همایونی</item>
+        <item>شهریار نیک پور</item>
+        <item>سعید یزدانی</item>
+        <item>مهدی صابری</item>
+    </string-array>
+
+
+</resources>
