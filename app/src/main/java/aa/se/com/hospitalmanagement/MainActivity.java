@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //changes i hope to be apply on project
     @Override
     protected void onStart() {
         super.onStart();
