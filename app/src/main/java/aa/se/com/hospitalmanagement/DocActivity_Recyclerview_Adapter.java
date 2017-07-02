@@ -1,13 +1,18 @@
 package aa.se.com.hospitalmanagement;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -25,7 +30,7 @@ public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocVi
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.font = font;
-        this.doctors=doctors;
+        this.doctors = doctors;
     }
 
     @Override
@@ -38,6 +43,17 @@ public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocVi
 
         holder.docName.setText(doctors[position]);
         holder.docName.setTypeface(font);
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SingleDocActivity.class);
+                intent.putExtra("NAME", doctors[position]);
+
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat
+                        .makeSceneTransitionAnimation((Activity) context, holder.rootView, "sharedCard");
+                context.startActivity(intent, optionsCompat.toBundle());
+            }
+        });
     }
 
     @Override
@@ -49,6 +65,7 @@ public class DocActivity_Recyclerview_Adapter extends RecyclerView.Adapter<DocVi
 
 class DocViewHolder extends RecyclerView.ViewHolder {
 
+    public CardView rootView;
     public TextView docName;
     public TextView docDes;
     public ImageView docImage;
@@ -56,8 +73,9 @@ class DocViewHolder extends RecyclerView.ViewHolder {
     public DocViewHolder(View itemView) {
         super(itemView);
 
-        docName= (TextView) itemView.findViewById(R.id.text_doc);
-        docDes= (TextView) itemView.findViewById(R.id.text_doc_des);
-        docImage= (ImageView) itemView.findViewById(R.id.image_doc);
+        rootView = (CardView) itemView.findViewById(R.id.cardView_root);
+        docName = (TextView) itemView.findViewById(R.id.text_doc);
+        docDes = (TextView) itemView.findViewById(R.id.text_doc_des);
+        docImage = (ImageView) itemView.findViewById(R.id.image_doc);
     }
 }

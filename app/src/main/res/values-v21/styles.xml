@@ -8,4 +8,12 @@
                 <item name="colorAccent">@color/colorPrimary</item>
                 <item name="android:statusBarColor">@color/A700</item>
         </style>
+
+        <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="colorPrimary">@color/A400</item>
+                <item name="colorPrimaryDark">@color/A400</item>
+                <item name="colorAccent">@color/colorPrimary</item>
+                <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+                <item name="android:windowActivityTransitions">true</item>
+        </style>
 </resources>
