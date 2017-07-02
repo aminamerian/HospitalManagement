@@ -12,6 +12,7 @@ public class SingleDocActivity extends AppCompatActivity {
 
     private Typeface yekanFont;
     private String name;
+    private int image;
     private TextView textViewName;
     private ImageView imageView;
 
@@ -25,7 +26,7 @@ public class SingleDocActivity extends AppCompatActivity {
 
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
         name = getIntent().getStringExtra("NAME");
-        int image = getIntent().getIntExtra("IMAGE", R.drawable.ic_doc);
+        image = getIntent().getIntExtra("IMAGE", R.drawable.ic_doc);
 
         textViewName = (TextView) findViewById(R.id.text_doc);
         imageView = (ImageView) findViewById(R.id.image_doc);
