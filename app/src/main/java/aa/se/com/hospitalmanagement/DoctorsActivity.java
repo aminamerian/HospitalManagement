@@ -105,7 +105,7 @@ public class DoctorsActivity extends AppCompatActivity {
         });
 
         DocActivity_Recyclerview_Adapter adapter = new DocActivity_Recyclerview_Adapter(recyclerView.getContext()
-                , yekanFont, getDoctors(section), getDoctorsDes(section), getDoctorsImg(section));
+                , yekanFont, getDoctors(section), getDoctorsDes(section), getDoctorsImg(section),section);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(DoctorsActivity.this));

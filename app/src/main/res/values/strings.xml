@@ -40,8 +40,6 @@
     </string-array>
 
 
-
-
     <string name="exit">خروج</string>
 
 
@@ -69,25 +67,48 @@
     </string-array>
 
     <string-array name="sec1_docs_des">
+        <item> فوق تخصص ستون فقرات</item>
+        <item>جراح مغز و اعصاب</item>
+        <item>متخصص مغز و اعصاب</item>
+    </string-array>
+
+    <string-array name="sec2_docs_des">
+        <item>متخصص و فوق تخصص قلب و عروق</item>
+        <item>متخصص قلب و عروق</item>
+        <item>تخصص داخلی</item>
+    </string-array>
+
+    <string-array name="sec3_docs_des">
+        <item>متخصص و فوق تخصص گوارش</item>
+        <item>فوق تخصص کبد</item>
+        <item>فوق تخصص معده</item>
+        <item>متخصص گوارش</item>
+    </string-array>
+
+    <string-array name="sec4_docs_des">
+        <item>متخصص گوش حلق بینی</item>
+    </string-array>
+
+    <string-array name="sec1_docs_des_complete">
         <item>بورد تخصصي مغز از دانشگاه تهران</item>
         <item>عضو انجمن آترواسكلروز</item>
         <item>دکترای عمومی، دانشگاه شهید بهشتی (۱۳۷۶) دکترای تخصصی، دانشگاه تهران(۱۳۸۳) عضویت انجمن مغز آمریکا</item>
     </string-array>
 
-    <string-array name="sec2_docs_des">
+    <string-array name="sec2_docs_des_complete">
         <item> جراحی داخلی، دانشگاه هایدلبرگ (با مدیریت پروفسور هاگل)، هایدلبرگ، آلمان، ۱۳۶۹</item>
         <item>جراح عمومی، فوق تخصص جراحی قلب عروق، معاون آموزش بخش جراحی عمومی و توراکس بیمارستان مدرس (دانشگاه شهید بهشتی)</item>
         <item> </item>
     </string-array>
 
-    <string-array name="sec3_docs_des">
-        <item> </item>
+    <string-array name="sec3_docs_des_complete">
+        <item></item>
         <item> </item>
         <item> </item>
         <item> </item>
     </string-array>
 
-    <string-array name="sec4_docs_des">
+    <string-array name="sec4_docs_des_complete">
         <item>تخصص داخلی دانشگاه علوم پزشکی اهواز فوق تخصص قلب دانشگاه علوم پزشکی شهید بهشتی</item>
     </string-array>
 

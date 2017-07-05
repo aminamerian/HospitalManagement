@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView_root"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="105dp"
     android:layout_gravity="center"
+    android:layout_marginBottom="@dimen/md_keylines"
     android:layout_marginEnd="@dimen/md_keylines"
     android:layout_marginStart="@dimen/md_keylines"
-    android:layout_marginBottom="@dimen/md_keylines"
     android:foreground="?android:attr/selectableItemBackground"
     android:layoutDirection="rtl"
     app:cardElevation="4dp">
@@ -21,30 +21,50 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
-            android:transitionName="sharedImage"
+            android:layout_marginTop="5dp"
             android:scaleType="fitStart"
+            android:transitionName="sharedImage"
             app:srcCompat="@drawable/ic_doc" />
 
         <TextView
             android:id="@+id/text_doc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:transitionName="sharedText"
-            android:textSize="24sp" />
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="#aa000000"
+            android:textSize="24sp"
+            android:transitionName="sharedText" />
 
         <TextView
             android:id="@+id/text_doc_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start"
             android:layout_below="@id/text_doc"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:gravity="start"
             android:textSize="16sp" />
 
+        <LinearLayout
+            android:id="@+id/ratingbar_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text_doc_des"
+            android:transitionName="sharedRatingBar" >
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/customRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4"
+                android:stepSize="1"/>
+        </LinearLayout>
 
     </RelativeLayout>
 
