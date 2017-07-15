@@ -3,9 +3,13 @@ package aa.se.com.hospitalmanagement;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mikepenz.iconics.context.IconicsLayoutInflater;
 
@@ -20,6 +24,8 @@ public class SingleDocActivity extends AppCompatActivity {
     private ImageView imageView;
     private RatingBar ratingBar;
     private String completeDes;
+    private LinearLayout resButContainer;
+    private Button reserveButton;
 
 
     @Override
@@ -37,18 +43,34 @@ public class SingleDocActivity extends AppCompatActivity {
 
         textViewName = (TextView) findViewById(R.id.text_doc);
         textViewDes = (TextView) findViewById(R.id.text_doc_des);
+
         imageView = (ImageView) findViewById(R.id.image_doc);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        resButContainer = (LinearLayout) findViewById(R.id.linearLayout_buttonContainer);
+        reserveButton = (Button) findViewById(R.id.button_reservation);
 
         textViewName.setTypeface(yekanFont);
         textViewDes.setTypeface(yekanFont);
+        reserveButton.setTypeface(yekanFont);
         textViewName.setText(name);
         textViewDes.setText(completeDes);
         imageView.setImageResource(image);
         ratingBar.setRating(rate);
 
         textViewDes.animate()
-                .alpha(1).setDuration(1500);
+                .alpha(1).setDuration(1000);
+
+        resButContainer.animate()
+                .alpha(1).setDuration(1000);
+
+        reserveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ReservationDialog().show(getSupportFragmentManager(), "reservationDialog");
+            }
+        });
+
+
     }
 
 }

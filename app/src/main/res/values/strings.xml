@@ -112,4 +112,14 @@
         <item>تخصص داخلی دانشگاه علوم پزشکی اهواز فوق تخصص قلب دانشگاه علوم پزشکی شهید بهشتی</item>
     </string-array>
 
+    <string-array name="time_options">
+
+        <item>4-5</item>
+        <item>5-6</item>
+        <item>6-7</item>
+        <item>7-8</item>
+        <item>8-9</item>
+        <item>9-10</item>
+    </string-array>
+
 </resources>
