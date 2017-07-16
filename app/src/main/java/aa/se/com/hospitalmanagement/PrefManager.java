@@ -19,6 +19,67 @@ public class PrefManager {
         editor.apply();
     }
 
+
+    public void setUserPhoneNumber(String value) {
+        editor.putString("userPhoneNumber", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public String getUserPhoneNumber() {
+        return sharedPreferences.getString("userPhoneNumber", "00000000000");
+    }
+
+    public void setUserHasBeenAuthenticated(Boolean value) {
+        editor.putBoolean("hasBeenAuthenticated", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public Boolean getUserHasBeenAuthenticated() {
+        return sharedPreferences.getBoolean("hasBeenAuthenticated", false);
+    }
+
+    public void setUserHasRegistered(Boolean value) {
+        editor.putBoolean("hasregistered", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public Boolean getUserHasRegistered() {
+        return sharedPreferences.getBoolean("hasregistered", false);
+    }
+
+    public void setUserName(String value) {
+        editor.putString("name", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public String getUserName() {
+        return sharedPreferences.getString("name", "");
+    }
+
+    public void setUserLastName(String value) {
+        editor.putString("lname", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public String getUserLastName() {
+        return sharedPreferences.getString("lname", "");
+    }
+
+    public void setUserNationalNumber(String value) {
+        editor.putString("nname", value);
+        editor.commit();
+        editor.apply();
+    }
+
+    public String getUserNationalNumber() {
+        return sharedPreferences.getString("nname", "");
+    }
+
     public void setReservationTime(String value, int i) {
         editor.putString("reservationTime" + i, value);
         editor.commit();

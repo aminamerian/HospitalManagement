@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="aa.se.com.hospitalmanagement.Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp">
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="50dp"
+            android:text="نام" />
+
+        <EditText
+            android:id="@+id/editText_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_name"
+            android:layoutDirection="rtl" />
+
+        <TextView
+            android:id="@+id/textView_lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_name"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:text="نام خانوادگی" />
+
+        <EditText
+            android:id="@+id/editText_lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_lname"
+            android:layoutDirection="rtl" />
+
+        <TextView
+            android:id="@+id/textView_nationalNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_lname"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:text="شماره ملی" />
+
+        <EditText
+            android:id="@+id/editText_nationalNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_nationalNumber"
+            android:layoutDirection="rtl" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/A700"
+        android:minHeight="50dp">
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="ثبت"
+            android:textColor="#F1F8E9"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

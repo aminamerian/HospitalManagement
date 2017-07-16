@@ -98,7 +98,8 @@ public class DoctorsActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 4:
-                        Toast.makeText(DoctorsActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
+                        Intent intent3 = new Intent(DoctorsActivity.this, Profile.class);
+                        startActivity(intent3);
                         break;
                     case 5:
                         Toast.makeText(DoctorsActivity.this, getString(R.string.exit), Toast.LENGTH_SHORT).show();

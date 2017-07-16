@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         prefManager = new PrefManager(this);
+
+        if (!prefManager.getUserHasBeenAuthenticated()) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+        }
+
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_content);
         navDrawer = (ListView) findViewById(R.id.listView_navDrawer);
@@ -96,7 +102,9 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 4:
-                        Toast.makeText(MainActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(MainActivity.this, Profile.class);
+                        startActivity(intent2);
+//                        mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 5:
                         Toast.makeText(MainActivity.this, getString(R.string.exit), Toast.LENGTH_SHORT).show();
@@ -144,6 +152,15 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, History.class);
                 startActivity(intent);
+            }
+        });
+
+        badge.getActionView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                prefManager.setUserHasBeenAuthenticated(false);
+                return true;
             }
         });
         return true;

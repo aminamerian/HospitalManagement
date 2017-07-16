@@ -20,6 +20,7 @@ public class NavDrawerAdapter extends ArrayAdapter<String> {
     String[] titles;
     int[] images = {R.drawable.ic_dep, R.drawable.ic_event_black, R.drawable.ic_order_status, R.drawable.ic_perm_identity, R.drawable.ic_exit};
     Typeface font;
+    private PrefManager prefManager;
 
     public NavDrawerAdapter(Context context, String[] titles, Typeface font) {
         super(context, R.layout.item_navdrawer, R.id.textView_item_nav, titles);
@@ -27,7 +28,7 @@ public class NavDrawerAdapter extends ArrayAdapter<String> {
         this.context = context;
         this.titles = titles;
         this.font = font;
-
+        prefManager = new PrefManager(context);
     }
 
     @Override
@@ -43,8 +44,8 @@ public class NavDrawerAdapter extends ArrayAdapter<String> {
             name.setTypeface(font);
             number.setTypeface(font);
 
-            number.setText("09385691662");
-            name.setText("امین عامریان");
+            number.setText(prefManager.getUserPhoneNumber());
+            name.setText(prefManager.getUserName() + " " + prefManager.getUserLastName());
 //            Animation anim_minusBtn = AnimationUtils.loadAnimation(context, R.anim.fade_anim);
 //            image.startAnimation(anim_minusBtn);
 

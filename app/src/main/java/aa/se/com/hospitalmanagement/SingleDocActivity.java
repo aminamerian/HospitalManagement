@@ -1,6 +1,9 @@
 package aa.se.com.hospitalmanagement;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +31,7 @@ public class SingleDocActivity extends AppCompatActivity {
     private LinearLayout resButContainer;
     private Button reserveButton;
     private static PrefManager prefManager;
+    private RelativeLayout rootLayout;
 
 
     @Override
@@ -49,6 +54,7 @@ public class SingleDocActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.image_doc);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         resButContainer = (LinearLayout) findViewById(R.id.linearLayout_buttonContainer);
+        rootLayout = (RelativeLayout) findViewById(R.id.layout_root);
         reserveButton = (Button) findViewById(R.id.button_reservation);
 
         textViewName.setTypeface(yekanFont);
@@ -68,7 +74,26 @@ public class SingleDocActivity extends AppCompatActivity {
         reserveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ReservationDialog().show(getSupportFragmentManager(), "reservationDialog");
+                if (prefManager.getUserHasRegistered()) {
+                    new ReservationDialog().show(getSupportFragmentManager(), "reservationDialog");
+                } else {
+                    Snackbar snackbar = Snackbar.make(rootLayout, "باید ثبت نام را کامل  کنید.", Snackbar.LENGTH_LONG).setAction("تکمیل ثبت نام", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(SingleDocActivity.this, Profile.class);
+                            startActivity(intent);
+                        }
+                    });
+                    snackbar.show();
+
+                    snackbar.setActionTextColor(Color.WHITE);
+
+                    View sbView = snackbar.getView();
+                    TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                    sbView.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+                    textView.setTextColor(Color.YELLOW);
+                    snackbar.show();
+                }
             }
         });
 
