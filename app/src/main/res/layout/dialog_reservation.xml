@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/picker_container"
         android:layout_width="match_parent"
-        android:layout_height="420dp">
+        android:layout_height="350dp">
 
         <DatePicker
             android:id="@+id/datePicker"
@@ -18,26 +18,44 @@
             android:layout_alignParentStart="true"
             android:visibility="visible" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/A700"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
+            android:layout_height="110dp"
+            android:background="@color/A1000"
             android:visibility="gone">
 
             <TextView
                 android:id="@+id/textView_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:text="15"
-                android:textSize="55sp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:textSize="50sp"
                 android:textColor="#ffffff"/>
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textView_header2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/textView_header"
+                android:layout_marginEnd="-50dp"
+                android:layout_marginTop="10dp"
+                android:textSize="35sp"
+                android:textColor="#aaffffff"/>
+
+            <TextView
+                android:id="@+id/textView_header3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/textView_header2"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
+                android:textSize="35sp"
+                android:textColor="#aaffffff"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_time_options"
@@ -50,7 +68,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/picker_container">
 

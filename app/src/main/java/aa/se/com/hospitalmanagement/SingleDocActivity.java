@@ -16,7 +16,7 @@ import com.mikepenz.iconics.context.IconicsLayoutInflater;
 public class SingleDocActivity extends AppCompatActivity {
 
     private Typeface yekanFont;
-    private String name;
+    private static String name;
     private int image;
     private int rate;
     private TextView textViewName;
@@ -26,6 +26,7 @@ public class SingleDocActivity extends AppCompatActivity {
     private String completeDes;
     private LinearLayout resButContainer;
     private Button reserveButton;
+    private static PrefManager prefManager;
 
 
     @Override
@@ -35,6 +36,7 @@ public class SingleDocActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_doc);
 
 
+        prefManager = new PrefManager(this);
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
         name = getIntent().getStringExtra("NAME");
         image = getIntent().getIntExtra("IMAGE", R.drawable.ic_doc);
@@ -70,7 +72,9 @@ public class SingleDocActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
+    public static void writeDocNameToSP(int i) {
+        prefManager.setDoctorName(name, i);
+    }
 }

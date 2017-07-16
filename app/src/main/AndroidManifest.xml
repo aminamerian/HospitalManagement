@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DoctorsActivity" />
-        <activity android:name=".SingleDocActivity"></activity>
+        <activity android:name=".SingleDocActivity" />
+        <activity android:name=".History"></activity>
     </application>
 
 </manifest>

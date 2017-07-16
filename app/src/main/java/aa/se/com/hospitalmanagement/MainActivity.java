@@ -1,5 +1,6 @@
 package aa.se.com.hospitalmanagement;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.view.GravityCompat;
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TextView toolbar_badge;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    int c=0;
+    int c = 0;
+    private PrefManager prefManager;
 
 
     @Override
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
 
+        prefManager = new PrefManager(this);
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_content);
         navDrawer = (ListView) findViewById(R.id.listView_navDrawer);
@@ -80,15 +83,17 @@ public class MainActivity extends AppCompatActivity {
         navDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(MainActivity.this, History.class);
                 switch (position) {
                     case 1:
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 2:
-                        Toast.makeText(MainActivity.this, "قرار ملاقات!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 3:
-                        Toast.makeText(MainActivity.this, "گزارش!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 4:
                         Toast.makeText(MainActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
@@ -108,7 +113,11 @@ public class MainActivity extends AppCompatActivity {
         MainActivity_Recyclerview_Adapter adapter = new MainActivity_Recyclerview_Adapter(recyclerView.getContext(), yekanFont);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+        if (toolbar_badge != null) {
+            updateBadge(String.valueOf(prefManager.getReservationNumber()));
+        }
     }
 
     @Override
@@ -127,21 +136,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar_badge = (TextView) badge.getActionView().findViewById(R.id.menu_badge);
         toolbar_badge.setTypeface(yekanFont);
 
+        updateBadge(String.valueOf(prefManager.getReservationNumber()));
+
         badge.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                c++;
-                if (c < 10) {
-                    updateBadge(String.valueOf(c));
-                    updatePrice(String.valueOf(c));
-                }else{
-                    updateBadge("<10");
-                    updatePrice("پیش از اندازه");
-                }
-
-                //Toast.makeText(MainActivity.this, "سبد شما خالیست!", Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(MainActivity.this, History.class);
+                startActivity(intent);
             }
         });
         return true;

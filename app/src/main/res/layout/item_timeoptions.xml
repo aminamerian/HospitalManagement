@@ -9,10 +9,9 @@
         android:id="@+id/linearLayout_buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:background="@color/A700"
         android:minHeight="50dp">
 
@@ -22,7 +21,7 @@
             android:layout_height="match_parent"
             android:background="?android:attr/selectableItemBackground"
             android:textColor="#F1F8E9"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
     </LinearLayout>
 
 </LinearLayout>

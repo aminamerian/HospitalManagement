@@ -1,5 +1,6 @@
 package aa.se.com.hospitalmanagement;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.view.GravityCompat;
@@ -84,15 +85,17 @@ public class DoctorsActivity extends AppCompatActivity {
         navDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(DoctorsActivity.this, History.class);
                 switch (position) {
                     case 1:
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        Intent intent2 = new Intent(DoctorsActivity.this, MainActivity.class);
+                        startActivity(intent2);
                         break;
                     case 2:
-                        Toast.makeText(DoctorsActivity.this, "قرار ملاقات!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 3:
-                        Toast.makeText(DoctorsActivity.this, "گزارش!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 4:
                         Toast.makeText(DoctorsActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
@@ -105,7 +108,7 @@ public class DoctorsActivity extends AppCompatActivity {
         });
 
         DocActivity_Recyclerview_Adapter adapter = new DocActivity_Recyclerview_Adapter(recyclerView.getContext()
-                , yekanFont, getDoctors(section), getDoctorsDes(section), getDoctorsImg(section),section);
+                , yekanFont, getDoctors(section), getDoctorsDes(section), getDoctorsImg(section), section);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(DoctorsActivity.this));
