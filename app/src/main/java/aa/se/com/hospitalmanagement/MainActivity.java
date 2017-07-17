@@ -1,5 +1,6 @@
 package aa.se.com.hospitalmanagement;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.view.GravityCompat;
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TextView toolbar_badge;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    int c=0;
+    int c = 0;
+    private PrefManager prefManager;
 
 
     @Override
@@ -46,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
+
+        prefManager = new PrefManager(this);
+
+        if (!prefManager.getUserHasBeenAuthenticated()) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         }
 
         yekanFont = Typeface.createFromAsset(getAssets(), "fonts/b_yekan.ttf");
@@ -80,18 +89,22 @@ public class MainActivity extends AppCompatActivity {
         navDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(MainActivity.this, History.class);
                 switch (position) {
                     case 1:
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 2:
-                        Toast.makeText(MainActivity.this, "قرار ملاقات!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 3:
-                        Toast.makeText(MainActivity.this, "گزارش!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 4:
-                        Toast.makeText(MainActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(MainActivity.this, Profile.class);
+                        startActivity(intent2);
+//                        mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 5:
                         Toast.makeText(MainActivity.this, getString(R.string.exit), Toast.LENGTH_SHORT).show();
@@ -100,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -107,14 +121,18 @@ public class MainActivity extends AppCompatActivity {
         MainActivity_Recyclerview_Adapter adapter = new MainActivity_Recyclerview_Adapter(recyclerView.getContext(), yekanFont);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+        if (toolbar_badge != null) {
+            updateBadge(String.valueOf(prefManager.getReservationNumber()));
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu_options; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
 
@@ -126,21 +144,23 @@ public class MainActivity extends AppCompatActivity {
         toolbar_badge = (TextView) badge.getActionView().findViewById(R.id.menu_badge);
         toolbar_badge.setTypeface(yekanFont);
 
+        updateBadge(String.valueOf(prefManager.getReservationNumber()));
+
         badge.getActionView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                c++;
-                if (c < 10) {
-                    updateBadge(String.valueOf(c));
-                    updatePrice(String.valueOf(c));
-                }else{
-                    updateBadge("<10");
-                    updatePrice("پیش از اندازه");
-                }
+                Intent intent = new Intent(MainActivity.this, History.class);
+                startActivity(intent);
+            }
+        });
 
-                //Toast.makeText(MainActivity.this, "سبد شما خالیست!", Toast.LENGTH_SHORT).show();
-
+        badge.getActionView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                prefManager.setUserHasBeenAuthenticated(false);
+                return true;
             }
         });
         return true;

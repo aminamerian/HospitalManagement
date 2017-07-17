@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="200dp"
+        android:background="#33000000" />
+
+    <View
+        android:id="@+id/view_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="250dp"
+        android:background="#33000000" />
+
+    <RelativeLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/img_header"
+        android:paddingBottom="@dimen/md_keylines"
+        android:paddingEnd="@dimen/md_keylines"
+        android:paddingStart="@dimen/md_keylines"
+        android:paddingTop="@dimen/md_keylines">
+
+        <ImageView
+            android:id="@+id/image_doc"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitStart"
+            android:transitionName="sharedImage"
+            app:srcCompat="@drawable/ic_doc" />
+
+        <TextView
+            android:id="@+id/text_doc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="#aa000000"
+            android:textSize="24sp"
+            android:transitionName="sharedText" />
+
+        <LinearLayout
+            android:id="@+id/rating_bar_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_doc"
+            android:gravity="center"
+            android:transitionName="sharedRatingBar">
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/customRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rating_bar_layout"
+            android:layout_marginStart="16dp"
+            android:layout_toStartOf="@id/image_doc"
+            android:scrollbars="none">
+
+            <TextView
+                android:id="@+id/text_doc_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:gravity="start"
+                android:textSize="16sp" />
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="@color/A700"
+        android:minHeight="50dp"
+        android:alpha="0">
+
+        <Button
+            android:id="@+id/button_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="ثبت قرار ملاقات"
+            android:textColor="#F1F8E9"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_layout">
+
+
+    </RelativeLayout>
+</RelativeLayout>

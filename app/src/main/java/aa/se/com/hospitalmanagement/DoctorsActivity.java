@@ -1,5 +1,6 @@
 package aa.se.com.hospitalmanagement;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.view.GravityCompat;
@@ -84,18 +85,21 @@ public class DoctorsActivity extends AppCompatActivity {
         navDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(DoctorsActivity.this, History.class);
                 switch (position) {
                     case 1:
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        Intent intent2 = new Intent(DoctorsActivity.this, MainActivity.class);
+                        startActivity(intent2);
                         break;
                     case 2:
-                        Toast.makeText(DoctorsActivity.this, "قرار ملاقات!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 3:
-                        Toast.makeText(DoctorsActivity.this, "گزارش!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
                         break;
                     case 4:
-                        Toast.makeText(DoctorsActivity.this, "پروفایل!", Toast.LENGTH_SHORT).show();
+                        Intent intent3 = new Intent(DoctorsActivity.this, Profile.class);
+                        startActivity(intent3);
                         break;
                     case 5:
                         Toast.makeText(DoctorsActivity.this, getString(R.string.exit), Toast.LENGTH_SHORT).show();
@@ -104,13 +108,14 @@ public class DoctorsActivity extends AppCompatActivity {
             }
         });
 
-        DocActivity_Recyclerview_Adapter adapter = new DocActivity_Recyclerview_Adapter(recyclerView.getContext(), yekanFont, getDoctors(section));
+        DocActivity_Recyclerview_Adapter adapter = new DocActivity_Recyclerview_Adapter(recyclerView.getContext()
+                , yekanFont, getDoctors(section), getDoctorsDes(section), getDoctorsImg(section), section);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(DoctorsActivity.this));
     }
 
-    public String[] getDoctors(int sec) {  //get all doctors in a section
+    public String[] getDoctors(int sec) {  //get all doctor's names in a section
         switch (sec) {
             case 0:
                 return getResources().getStringArray(R.array.sec1_docs);
@@ -118,8 +123,42 @@ public class DoctorsActivity extends AppCompatActivity {
                 return getResources().getStringArray(R.array.sec2_docs);
             case 2:
                 return getResources().getStringArray(R.array.sec3_docs);
+            case 3:
+                return getResources().getStringArray(R.array.sec4_docs);
             default:
                 return new String[0];
+        }
+
+    }
+
+    public String[] getDoctorsDes(int sec) {  //get all doctors's description in a section
+        switch (sec) {
+            case 0:
+                return getResources().getStringArray(R.array.sec1_docs_des);
+            case 1:
+                return getResources().getStringArray(R.array.sec2_docs_des);
+            case 2:
+                return getResources().getStringArray(R.array.sec3_docs_des);
+            case 3:
+                return getResources().getStringArray(R.array.sec4_docs_des);
+            default:
+                return new String[0];
+        }
+
+    }
+
+    public int[] getDoctorsImg(int sec) {  //get all doctors's image in a section
+        switch (sec) {
+            case 0:
+                return new int[]{R.drawable.dr_givechian, R.drawable.dr_kolahchi, R.drawable.dr_hendesi};
+            case 1:
+                return new int[]{R.drawable.dr_hormoz, R.drawable.dr_malekpoor, R.drawable.ic_doc};
+            case 2:
+                return new int[]{R.drawable.dr_asdaghpoor, R.drawable.ic_doc, R.drawable.dr_zahra_jozani, R.drawable.dr_maghami};
+            case 3:
+                return new int[]{R.drawable.dr_payami};
+            default:
+                return new int[0];
         }
 
     }
@@ -139,7 +178,6 @@ public class DoctorsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override

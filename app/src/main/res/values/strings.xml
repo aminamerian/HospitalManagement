@@ -5,49 +5,22 @@
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
 
-    <string-array name="navDrawer">
-        <item>بخش ها</item>
-        <item>قرار ملاقات ها</item>
-        <item>تاریخچه</item>
-        <item>پروفایل</item>
-        <item>خروج از حساب کاربری</item>
-    </string-array>
+    <string name="permission_rationale_read_ex_storage">اجازه دسترسی خواندن حافظه داده نشده</string>
+    <string name="permission_rationale_write_ex_storage">اجازه نوشتن در حافظه داده نشده</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="sign_in">sign in</string>
+    <string name="title_activity_login">Sign in</string>
 
-    <string-array name="depsName">
-        <item>مغز</item>
-        <item>قلب</item>
-        <item>گوارش</item>
-        <item>گوش و حلق و بینی</item>
-        <item>زنان و زایمان</item>
-        <item>کلیه</item>
-        <item>خون</item>
-        <item>چشم</item>
-        <item>رادیولوژی</item>
-        <item>اورتوپد</item>
-    </string-array>
-
-    <string name="exit">خروج</string>
-
-
-
-
-    <string-array name="sec1_docs">
-        <item>یداله علی محمدی</item>
-        <item>مهرداد مرادی</item>
-        <item>محمدرضا حاجی آبادی</item>
-    </string-array>
-
-    <string-array name="sec2_docs">
-        <item>حسین حسین نژاد</item>
-        <item>رامین بقائی</item>
-    </string-array>
-
-    <string-array name="sec3_docs">
-        <item>محمد همایونی</item>
-        <item>شهریار نیک پور</item>
-        <item>سعید یزدانی</item>
-        <item>مهدی صابری</item>
-    </string-array>
-
-
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="developer">developed by \n Amin Amerian \n Alireza Ahmadi</string>
 </resources>
